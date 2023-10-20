@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>It’s holiday!</title>
+    <!-- Import some google font  -->
+    <link href="https://fonts.googleapis.com/css?family=Hi Melody" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Young Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo 2" rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css"/>
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <!--  The first page, includes a title and nav bar -->
+    <div id="page-1" class="page">
+        <h1 class="title">It’s holiday!</h1>
+        <div class="nav-bar">
+            <div class="nav nav-text-active" id="nav-1">
+                <h2 class="nav-name">Food</h2>
+                <p class="nav-description">
+                    Explore a global culinary journey during your summer vacation. Delve into local food cultures, savor unique flavors and restaurants, and embark on a gastronomic adventure that will tantalize your taste buds.
+                </p>
+                <a href="#food">
+                    <button  class="button button-1">Explore</button>
+                </a>
+
+            </div>
+            <div class="nav" id="nav-2">
+                <h2 class="nav-name">Landscape</h2>
+                <p class="nav-description">
+                    Your destination for a summer adventure that seamlessly blends the wonders of nature and culture. From majestic mountain ranges to historical landmarks, every attraction offers an inspiring journey, immersing you in its unique charm.
+                </p>
+                <a href="#landscape">
+                    <button  class="button button-2">Explore</button>
+                </a>
+            </div>
+        </div>
+        <div class="nav-bar">
+            <div class="nav" id="nav-3">
+                <h2 class="nav-name">Entertainment</h2>
+                <p class="nav-description">
+                    Endless summer fun and boundless vitality. Whether you seek outdoor adventures, immerse yourself in natural wonders, or engage in cultural activities, your vacation promises an abundance of joy and excitement.
+                </p>
+                <a href="#play">
+                    <button  class="button button-3">Explore</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--  The side navigations,  -->
+    <div class="navigation">
+        <!--  A animated people walk gif -->
+        <img src="assets/walk.gif" class="pointer" id="pointer" alt="" />
+        <div id="progress-bar" class="progress-bar">
+            <div class="progress" id="progress"></div>
+            <a href="#food">
+                <img alt="" class="food" src="assets/food.png"/>
+            </a>
+            <a href="#landscape">
+                <img alt="" class="scene" src="assets/scene.png"/>
+            </a>
+            <a href="#play">
+                <img alt="" class="play" src="assets/play.png"/>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--  The food page, includes four food -->
+<div class="food-container" id="food">
+    <div class="col">
+        <div onmouseover="onLookItem(this)" data-item="japan-food">
+            <div class="img-description-left desc-1">
+                Japanese cuisine values fresh, seasonal ingredients like seaweed and soy sauce to create delicate yet savory dishes such as sushi, ramen, and tempura.
+            </div>
+            <img src="assets/japan-food.jpg"/>
+        </div>
+        <div onmouseover="onLookItem(this)" data-item="italy-food">
+            <div class="img-description-left desc-2">
+                Italian cuisine celebrates regional, seasonal ingredients like tomatoes, olive oil, and pasta. Signature dishes include pizza, risotto, ossobuco, and tiramisu. The roots of Italian cooking come from the country's diverse regions, creating rustic yet refined dishes that emphasize fresh produce, seafood, and cheese.
+            </div>
+            <img src="assets/italy-food.jpg"/>
+        </div>
+    </div>
+    <div class="col">
+        <div onmouseover="onLookItem(this)" data-item="turkey-food">
+            <div class="img-description-right desc-3">
+                Turkish cuisine features spiced meat dishes, stews, and diverse small plates called meze. Robust flavors like garlic, yogurt, and Aleppo pepper shape iconic dishes like kebabs, baklava, stuffed vegetables, and Turkish coffee. Ottoman, Arabic, and Mediterranean influences create Turkey's unique food culture.
+            </div>
+            <img src="assets/turkey-food.jpg"/>
+        </div>
+        <div onmouseover="onLookItem(this)" data-item="india-food">
+            <div class="img-description-right desc-4">
+                Indian cuisine features complex spicing and diverse vegetarian dishes. Signature flavors like cumin, turmeric, cardamom, and chili peppers create robust curries, stews, and grilled meats. Regional diversity shapes iconic dishes like tandoori chicken, samosas, naan breads, biryani, and chutneys. India's food reflects its history as a cultural crossroads.
+            </div>
+            <img src="assets/india.jpg"/>
+        </div>
+    </div>
+</div>
+<div class="landscape-container" id="landscape">
+    <div class="col">
+        <div onmouseover="onLookItem(this)" data-item="japan-landscape">
+            <div class="description-style-2">
+                Mount Fuji is Japan's tallest peak and most iconic landmark, rising 3,776 meters. Considered sacred, it has long inspired art and literature. Fuji's symmetric cone overlooking lakes and forests graces countless images of Japan. Hiking trails lead up the volcano, which last erupted in 1707. Fuji is a UNESCO World Heritage Site.
+            </div>
+            <img src="assets/japan-landscape.jpg"/>
+        </div>
+        <div onmouseover="onLookItem(this)" data-item="italy-landscape">
+            <div class="description-style-2">
+                The Leaning Tower of Pisa is a breathtaking marble bell tower located in Pisa, Italy. Famous for its unintended tilt, this architectural wonder rises nearly 56 meters with 8 stories of intricate arches and columns. Construction began in 1173 but soft soil caused the structure to start leaning by 1178 during its long 199 year build. Today it is secured and open to the public.
+            </div>
+            <img src="assets/italy-landscape.jpg"/>
+        </div>
+    </div>
+    <div class="col">
+        <div onmouseover="onLookItem(this)" data-item="sydeny-landscape">
+            <div class="description-style-2">
+                The Sydney Opera House is an architectural marvel featuring shell-like curves and soaring white sails. Perched on Sydney Harbour, this iconic performing arts complex was designed by Jørn Utzon and completed in 1973. It hosts over 1,800 shows annually across multiple venues and is a UNESCO World Heritage Site, recognized for its structural brilliance.
+            </div>
+            <img src="assets/sydeny.jpg"/>
+        </div>
+        <div onmouseover="onLookItem(this)" data-item="egypt-landscape">
+            <div class="description-style-2">
+                The Egyptian pyramids are monumental tombs built for pharaohs of the Old Kingdom. The Great Pyramids at Giza, constructed circa 2550 BCE, are the largest and most famous. Built of limestone and granite blocks, they contain elaborate chambers to house the sarcophagus and worldly goods of the deceased ruler for the afterlife. The pyramids are architectural marvels and symbols of ancient Egyptian civilization.
+            </div>
+            <img src="assets/egypt.jpg"/>
+        </div>
+    </div>
+</div>
+<div class="play-container" id="play">
+    <div class="col">
+        <div onmouseover="onLookItem(this)" data-item="aus-play" class="entertainment">
+            <div class="entertainment1">
+                RMIT Capital is a financial entity affiliated with RMIT University, engaging in strategic investments and fostering innovation in the business and education sectors.
+            </div>
+            <img src="assets/aus-play.jpg"/>
+        </div>
+        <div onmouseover="onLookItem(this)" data-item="usa-play" class="entertainment">
+            <div class="entertainment2">
+                The MSG Sphere is a visionary performance venue under construction in Las Vegas. Featuring a high-tech spherical design, it will have an LED exterior surface and interior immersive displays to envelop audiences. With a scalable capacity reaching up to 20,000, the MSG Sphere aims to revolutionize live entertainment and music experiences.
+            </div>
+            <img src="assets/usa-play.jpeg"/>
+        </div>
+
+    </div>
+    <div class="col">
+        <div onmouseover="onLookItem(this)" data-item="desney-play" class="entertainment">
+            <div class="entertainment3">
+                Disney's theme parks are immersive wonderlands bringing movies and characters to life. Filled with rides, shows, and themed areas, parks like Disneyland and Disney World transport guests into magical realms. From Sleeping Beauty's Castle to Star Wars: Galaxy's Edge, Disney's playgrounds capture the company's spirit of imagination and adventure. Families have made Disney vacations a cherished tradition since 1955.
+            </div>
+            <img src="assets/disney-play.jpg"/>
+        </div>
+        <div onmouseover="onLookItem(this)" data-item="spa-play" class="entertainment">
+            <div class="entertainment4">
+                Spas are havens for relaxation and rejuvenation. They provide a variety of services like massages, facials, body treatments, and hydrotherapy to soothe the body and mind. Many spas feature amenities like saunas, pools, and lounges to enhance the experience. With their tranquil settings and focus on wellness, spas offer an escape from everyday stresses to restore balance and promote healing.
+            </div>
+            <img src="assets/spa.jpg"/>
+        </div>
+    </div>
+
+    <div class="fun" id="fun">
+        Let's go have fun！
+    </div>
+</div>
+
+
+
+<script src="index.js"></script>
+</body>
+</html>

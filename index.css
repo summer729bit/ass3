@@ -1,0 +1,505 @@
+/**
+    All images come from https://www.pexels.com/,
+    this website allow others import their images.
+
+    https://www.pexels.com/license/
+ */
+* {
+    scroll-behavior: smooth !important;
+}
+.wrapper {
+    overflow: auto;
+}
+.container {
+    margin: auto;
+    width: calc(100vw - 30px);
+    height: calc(100vh - 30px);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/**
+   Since my website is placed vertically in different areas,
+   the navigation bar cannot be placed horizontally because it will be obscured,
+   so I chose to place it vertically.
+ */
+.navigation {
+    width: 60px;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.progress-bar {
+    width: 60px;
+    height: 100%;
+    background-color: #dadada;
+    position: relative;
+}
+
+.progress {
+    transition: 1s;
+    width: 60px;
+    background: white;
+    height: 0;
+}
+
+.pointer {
+    position: absolute;
+    width: 60px;
+    top: 0px;
+    transition: 1s;
+    z-index: 100;
+}
+
+/**
+    Three flags, corresponding to different website browser progress,
+    and they are clickable, the user can choose to watch any of the tour content
+ */
+.food {
+    width: 80px;
+    position: absolute;
+    left: 0px;
+    top: 220px;
+    z-index: 10000;
+}
+
+.scene {
+    width: 80px;
+    position: absolute;
+    left: 0px;
+    top: 450px;
+    z-index: 10000;
+}
+
+.play {
+    width: 80px;
+    position: absolute;
+    left: 0px;
+    top: 800px;
+    z-index: 10000;
+}
+
+.page {
+    width: 100%;
+    flex-grow: 1;
+    margin-bottom: 50px;
+
+}
+
+/**
+    @Reference: https://fonts.google.com/?query=Hi+Melody
+    Using Google fonts, this font looks less rigid, and the theme of travel is very suitable
+ */
+.title {
+    font-family: Hi Melody;
+    font-size: 150px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.nav-bar {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.nav {
+    width: 280px;
+    height: 280px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+/**
+The site's navigation is three images of the same size,
+and when the user puts the mouse over it,
+the navigation that is touched becomes larger and moves to the center of the screen,
+allowing the user to see the description of the navigation
+ */
+@keyframes nav {
+    from {
+        transform: rotate(0deg) scale(1, 1);
+    }
+
+    to {
+        transform: rotate(1080deg) scale(2, 2);
+    }
+}
+
+
+#nav-1 {
+    background: url("assets/food-nav.jpg");
+    background-size: auto 100%;
+}
+
+#nav-1:hover {
+    transform: scale(1.7, 1.7) translate(100px);
+}
+
+#nav-2 {
+    background: url("assets/landscape-nav.jpg");
+    background-size: auto 100%;
+}
+#nav-2:hover {
+    transform: scale(1.7, 1.7) translate(-100px);
+}
+
+#nav-3 {
+    background: url("assets/play-nav.jpg");
+    background-size: auto 100%;
+}
+#nav-3:hover {
+    transform: scale(1.7, 1.7) translate(0, -100px);
+}
+.nav-name, .nav-description {
+    color: white;
+    transition: 0.4s;
+}
+
+
+@keyframes toUp {
+    from {
+        transform: translate(0, 200px);
+        opacity: 0;
+    }
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+/**
+    @References: https://fonts.google.com/?query=Exo+2
+ */
+.nav-name {
+    font-family: "Exo 2";
+    opacity: 0;
+}
+
+/**
+    @Refernces:  https://fonts.google.com/specimen/Young+Serif?query=oung+Serif
+ */
+.nav-description {
+    font-family: Young Serif;
+    opacity: 0;
+    font-size: 10px;
+}
+
+/**
+    The caption gradually comes out from the bottom,
+    and the transparency gradually changes from 0 to 1,
+    reducing the abruptness of the text
+ */
+
+.nav:hover .nav-description {
+    animation-delay: 0.4s;
+    animation-name: toUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.nav:hover .nav-name {
+    animation-delay: 0.3s;
+    animation-name: toUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.nav:hover .button {
+    animation-delay: 0.8s;
+    animation-name: toUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+/**
+    Harmony makes a design sing: https://webflow.com/blog/web-design-principles
+ */
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.button:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    z-index: -2;
+}
+
+.button:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+.button:hover {
+    color: #fff;
+}
+
+.button:hover:before {
+    width: 100%;
+}
+
+.button-1:after {
+    background-color: #f13a8f;
+}
+.button-1:before {
+    background-color: #da0037;
+}
+
+.button-2:after {
+    background-color: #45dcdc;
+}
+.button-2:before {
+    background-color: #659de8;
+}
+
+.button-3:after {
+    background-color: #99e0c5;
+}
+.button-3:before {
+    background-color: #f6be66;
+}
+
+.food-container {
+    box-sizing: border-box;
+    padding: 100px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+
+}
+.col {
+    width: 400px;
+    flex-grow: 0
+}
+.col > div {
+    position: relative;
+    cursor: pointer;
+}
+.col img {
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+.landscape-container {
+    box-sizing: border-box;
+    padding: 100px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.play-container {
+    position: relative;
+    margin-top: 300px;
+    box-sizing: border-box;
+    padding: 100px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.col > div:hover .img-description-right{
+    opacity: 1;
+}
+.col > div:hover .img-description-left{
+    opacity: 1;
+}
+
+.col {
+    font-family: Young Serif;
+}
+
+/**
+    When the mouse moves to the picture, the description of the food picture will appear.
+    In order to allow users to see the picture with the text, I use a translucent background,
+    so that the text and the background have contrast,
+    so that the content of the text can be easily seen,
+    and the translucent background will not cover the food picture
+ */
+.img-description-left {
+    transition: 0.3s;
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    top: 10%;
+    width: 90%;
+    height: 80%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 15px 0 15px #333;
+    color: white;
+    opacity: 0;
+}
+/**
+    When the mouse moves to the picture, the description of the food picture will appear.
+    In order to allow users to see the picture with the text, I use a translucent background,
+    so that the text and the background have contrast,
+    so that the content of the text can be easily seen,
+    and the translucent background will not cover the food picture
+ */
+.img-description-right {
+    transition: 0.3s;
+    box-sizing: border-box;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 90%;
+    height: 80%;
+    box-shadow: -15px 0 15px #333;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    color: white;
+    opacity: 0;
+}
+
+.desc-1 {
+    background: rgba(236, 91, 78, 0.4);
+}
+
+.desc-2 {
+    background: rgba(101, 157, 232, 0.4);
+}
+
+.desc-3 {
+    background: rgba(246, 190, 102, 0.4);
+}
+
+.desc-4 {
+    background: rgba(38, 77, 61, 0.6);
+}
+
+.col > div:hover .description-style-2 {
+    opacity: 1;
+    top: 20%;
+}
+/**
+The introduction of scenic spots uses black characters on white background,
+just like books, the introduction of scenic spots often has some history,
+and when introducing history, history should be serious.
+ */
+.description-style-2 {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    background: rgba(239, 242, 246, 0.8);
+    font-family: Young Serif;
+    left: 0;
+    top: 80%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-sizing: border-box;
+    padding: 15px;
+    transition: 0.5s;
+    opacity: 0;
+}
+.entertainment {
+    position: relative;
+}
+/**
+    Entertainment is varied, and using a variety of colors allows users to experience this
+ */
+.entertainment1 {
+    background: #da0037;
+}
+.entertainment2 {
+    background: #f6be66;
+}
+.entertainment3 {
+    background: #659de8;
+}
+.entertainment4 {
+    background: #45dcdc;
+}
+.entertainment > div {
+    position: absolute;
+    left: 2.5%;
+    top: 2.5%;
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+    color: white;
+    font-family: Young Serif;
+    opacity: 0;
+    transition-delay: 1s;
+    transition: 0.5s;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.entertainment img {
+    transition: 0.5s;
+}
+.entertainment:hover img {
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+.entertainment:hover div {
+
+    opacity: 1;
+}
+
+@keyframes fun {
+    from {
+        transform: translate(0, 600px);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+.fun-active {
+    animation-name: fun;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.fun {
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    bottom: 100px;
+    text-align: center;
+    font-family: Hi Melody;
+    color: #45dcdc;
+    text-shadow: 10px 10px #333333;
+    font-size: 100px;
+    font-weight: bold;
+    transform: translate(0, 600px);
+}
